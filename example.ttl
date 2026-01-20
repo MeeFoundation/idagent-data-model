@@ -1,50 +1,73 @@
 @prefix : <http://www.example.org#> .
+@prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
+@prefix mee: <http://www.mee.foundation/ontologies/mee#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
-@prefix mee: <http://www.mee.foundation/ontologies/mee#> .
 @base <http://www.example.org#> .
 
 <http://www.example.org#> rdf:type owl:Ontology ;
-                           owl:imports <http://www.mee.foundation/ontologies/mee#> .
+                           owl:imports <http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl> ,
+                                       mee: ,
+                                       <https://www.commoncoreontologies.org/2024-11-05/AgentOntology> .
 
 #################################################################
 #    Annotation properties
 #################################################################
+
+###  http://purl.obolibrary.org/obo/IAO_has_represntation
+iao:has_represntation rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_is_about
+iao:is_about rdf:type owl:AnnotationProperty .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_name
+cco:has_name rdf:type owl:AnnotationProperty .
+
 
 ###  http://www.w3.org/2006/vcard/ns#parent
 <http://www.w3.org/2006/vcard/ns#parent> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
+#    Classes
+#################################################################
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GivenName
+cco:GivenName rdf:type owl:Class .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Person
+cco:Person rdf:type owl:Class .
+
+
+#################################################################
 #    Individuals
 #################################################################
 
-###  http://www.example.org#CellPhoneNum
+###  http://www.example.org#CellPhone
 :CellPhone rdf:type owl:NamedIndividual ,
-                       <http://www.w3.org/2006/vcard/ns#Cell> ;
-              <http://www.w3.org/2006/vcard/ns#hasValue> <tel:+1-510-814-6205> .
+                    <http://www.w3.org/2006/vcard/ns#Cell> ;
+           <http://www.w3.org/2006/vcard/ns#hasValue> <tel:+1-510-814-6205> .
 
-:HomeEmail rdf:type owl:NamedIndividual ,
-                       vcard:Home, 
-                       vcard:Email;
-              <http://www.w3.org/2006/vcard/ns#hasValue> <mailto:elizabethtrevithick@gmail.com> .
 
 ###  http://www.example.org#Elizabeth
 :Elizabeth rdf:type owl:NamedIndividual ,
-                    <http://www.mee.foundation/ontologies/mee#Person> ,
+                    cco:Person ,
                     <http://www.w3.org/2006/vcard/ns#Individual> ;
            <http://www.w3.org/2006/vcard/ns#hasAddress> :HomeAddress ;
-           <http://www.mee.foundation/ontologies/mee#ssn> "027-65-4329" ;
+           <http://www.w3.org/2006/vcard/ns#hasEmail> :HomeEmail ;
+           <http://www.w3.org/2006/vcard/ns#hasTelephone> :CellPhone ;
+           mee:ssn "027-65-4329" ;
            <http://www.w3.org/2006/vcard/ns#family-name> "Trevithick" ;
            <http://www.w3.org/2006/vcard/ns#fn> "Margery Elizabeth Trevithick" ;
            <http://www.w3.org/2006/vcard/ns#given-name> "Margery" ;
-           <http://www.w3.org/2006/vcard/ns#parent> :Millie ;
-           vcard:hasEmail :HomeEmail ;
-           vcard:hasTelephone :CellPhone .
+           <http://www.w3.org/2006/vcard/ns#parent> :Millie .
 
 
 ###  http://www.example.org#HomeAddress
@@ -57,26 +80,48 @@
              <http://www.w3.org/2006/vcard/ns#street-address> "23 Rundlett Street" .
 
 
+###  http://www.example.org#HomeEmail
+:HomeEmail rdf:type owl:NamedIndividual ,
+                    <http://www.w3.org/2006/vcard/ns#Email> ,
+                    <http://www.w3.org/2006/vcard/ns#Home> ;
+           <http://www.w3.org/2006/vcard/ns#hasValue> <mailto:elizabethtrevithick@gmail.com> .
+
+
 ###  http://www.example.org#Millie
 :Millie rdf:type owl:NamedIndividual ,
-                 <http://www.mee.foundation/ontologies/mee#Person> .
+                 cco:Person .
 
 
 ###  http://www.example.org#Paul
 :Paul rdf:type owl:NamedIndividual ,
-               <http://www.mee.foundation/ontologies/mee#Person> ;
-      <http://www.mee.foundation/ontologies/mee#ssn> "124-35-6789" .
+               cco:Person ;
+      cco:has_name :givenName1 .
 
 
 ###  http://www.example.org#Seema
 :Seema rdf:type owl:NamedIndividual ,
-                <http://www.mee.foundation/ontologies/mee#Person> .
+                cco:Person .
 
 
 ###  http://www.example.org#Susan
 :Susan rdf:type owl:NamedIndividual ,
-                <http://www.mee.foundation/ontologies/mee#Person> ;
-       <http://www.mee.foundation/ontologies/mee#ssn> "123-45-6789" .
+                cco:Person ;
+       mee:ssn "123-45-6789" .
+
+
+###  http://www.example.org#givenName1
+:givenName1 rdf:type owl:NamedIndividual ,
+                     cco:GivenName ;
+            iao:has_represntation "Paul" ;
+            iao:is_about :Paul .
+
+
+###  mailto:elizabethtrevithick@gmail.com
+<mailto:elizabethtrevithick@gmail.com> rdf:type owl:NamedIndividual .
+
+
+###  tel:+1-510-814-6205
+<tel:+1-510-814-6205> rdf:type owl:NamedIndividual .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
