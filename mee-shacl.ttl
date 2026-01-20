@@ -1,0 +1,49 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix :      <http://www.example.org#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix mee:   <http://www.mee.foundation/ontologies/mee#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+:PersonShape
+    a sh:NodeShape ;
+    sh:targetClass mee:Person ; 
+    sh:property [
+        sh:path vcard:fn ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path vcard:family-name ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path vcard:given-name ;
+    ] ;
+    sh:property [
+        sh:path vcard:hasAddress ;
+    ] ;
+    sh:property [
+        sh:path vcard:hasTelephone ;
+    ] ;
+    sh:property [
+        sh:path vcard:hasEmail ;
+    ] ;
+    sh:property [
+        sh:path vcard:parent ;
+    ] ;
+    sh:property [
+        sh:path mee:ssn ;       
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [ 
+        sh:path mee:ssn ;       
+        sh:datatype xsd:string ;
+        sh:pattern "^\\d{3}-\\d{2}-\\d{4}$" ;
+        sh:severity sh:Warning ;
+    ] ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type owl:topDataProperty owl:topObjectProperty ) ;
+    .
