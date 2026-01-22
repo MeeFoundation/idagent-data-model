@@ -5,12 +5,31 @@
 @prefix :      <http://www.example.org#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix mee:   <http://www.mee.foundation/ontologies/mee#> .
+@prefix cco:   <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
+:SSNShape
+    a sh:NodeShape ;
+    sh:targetClass cco:SocialSecurityNumber ;
+    sh:property [
+        sh:path cco:has_text_value ;
+        sh:datatype xsd:string ;
+        sh:pattern "^\\d{3}-\\d{2}-\\d{4}$" ;
+    ] .
+
+
 :PersonShape
     a sh:NodeShape ;
-    sh:targetClass mee:Person ; 
+    sh:targetClass cco:Person ; 
+
+    sh:property [
+        sh:path cco:is_bearer_of ;
+        sh:or (
+	  [ sh:class cco:SocialSecurityNumber ]   
+        ) ;
+    ] ;
+
     sh:property [
         sh:path vcard:fn ;
         sh:maxCount 1 ;
@@ -34,16 +53,8 @@
     sh:property [
         sh:path vcard:parent ;
     ] ;
-    sh:property [
-        sh:path mee:ssn ;       
-        sh:maxCount 1 ;
-    ] ;
-    sh:property [ 
-        sh:path mee:ssn ;       
-        sh:datatype xsd:string ;
-        sh:pattern "^\\d{3}-\\d{2}-\\d{4}$" ;
-        sh:severity sh:Warning ;
-    ] ;
+
+
     sh:closed true ;
     sh:ignoredProperties ( rdf:type owl:topDataProperty owl:topObjectProperty ) ;
     .
