@@ -13,7 +13,7 @@
     a sh:NodeShape ;
     sh:targetClass cco:SocialSecurityNumber ;
     sh:property [
-        sh:path cco:has_text_value ;
+        sh:path cco:has_string_value ;
         sh:datatype xsd:string ;
         sh:pattern "^\\d{3}-\\d{2}-\\d{4}$" ;
     ] .
@@ -24,37 +24,17 @@
     sh:targetClass cco:Person ; 
 
     sh:property [
-        sh:path cco:is_bearer_of ;
+        sh:path cco:has_name ;
+    ] ;
+    sh:property [
+        sh:path cco:has_designator ;
         sh:or (
+	  [ sh:class cco:TelephoneNumber ]   
 	  [ sh:class cco:SocialSecurityNumber ]   
         ) ;
     ] ;
 
-    sh:property [
-        sh:path vcard:fn ;
-        sh:maxCount 1 ;
-    ] ;
-    sh:property [
-        sh:path vcard:family-name ;
-        sh:maxCount 1 ;
-    ] ;
-    sh:property [
-        sh:path vcard:given-name ;
-    ] ;
-    sh:property [
-        sh:path vcard:hasAddress ;
-    ] ;
-    sh:property [
-        sh:path vcard:hasTelephone ;
-    ] ;
-    sh:property [
-        sh:path vcard:hasEmail ;
-    ] ;
-    sh:property [
-        sh:path vcard:parent ;
-    ] ;
-
-
+  
     sh:closed true ;
     sh:ignoredProperties ( rdf:type owl:topDataProperty owl:topObjectProperty ) ;
     .
