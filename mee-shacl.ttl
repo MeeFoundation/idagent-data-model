@@ -6,8 +6,7 @@
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix mee:   <http://www.mee.foundation/ontologies/mee#> .
 @prefix cco:   <http://www.ontologyrepository.com/CommonCoreOntologies/> .
-@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
-@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
 
 :SSNShape
     a sh:NodeShape ;
@@ -18,6 +17,39 @@
         sh:pattern "^\\d{3}-\\d{2}-\\d{4}$" ;
     ] .
 
+:LegalNameShape
+    a sh:NodeShape ;
+    sh:targetClass cco:PersonName ;  # applies to all names, including LegalName and Alias
+
+    # must have at least one GivenName
+    sh:property [
+        sh:path cco:has_part ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [
+            sh:class cco:GivenName
+        ] ;
+        sh:qualifiedMaxCount 2  # optional: for middle name as second given name
+    ] ;
+
+    # may have one optional MiddleName
+    sh:property [
+        sh:path cco:has_part ;
+        sh:qualifiedMinCount 0 ;
+        sh:qualifiedMaxCount 1 ;
+        sh:qualifiedValueShape [
+            sh:class cco:MiddleName
+        ] ;
+    ] ;
+
+    # must have exactly one FamilyName
+    sh:property [
+        sh:path cco:has_part ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedMaxCount 1 ;
+        sh:qualifiedValueShape [
+            sh:class cco:FamilyName
+        ] ;
+    ] .
 
 :PersonShape
     a sh:NodeShape ;
@@ -25,12 +57,16 @@
 
     sh:property [
         sh:path cco:has_name ;
+        sh:or (
+	        [ sh:class cco:LegalName ]   
+	        [ sh:class cco:Alias ]   
+        ) ;
     ] ;
     sh:property [
         sh:path cco:has_designator ;
         sh:or (
-	  [ sh:class cco:TelephoneNumber ]   
-	  [ sh:class cco:SocialSecurityNumber ]   
+	        [ sh:class cco:TelephoneNumber ]   
+	        [ sh:class cco:SocialSecurityNumber ]   
         ) ;
     ] ;
 
