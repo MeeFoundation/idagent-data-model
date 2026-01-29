@@ -10,7 +10,6 @@ This Data Model is an application profile over existing OWL ontologies. Its purp
 | cco    | http://www.ontologyrepository.com/CommonCoreOntologies/  | Common Core Ontologies        | [AllCoreOntology.ttl](https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/develop/src/cco-merged/AllCoreOntology.ttl) | 
 | po     | http://www.ontologyrepository.com/CommonCoreOntologies/  | Person Ontology               | [PersonOntology.ttl](https://opensource.ieee.org/po/person-ontology-project/-/blob/master/src/PersonOntology.ttl?ref_type=heads)  |
 | iao    | http://purl.obolibrary.org/obo/IAO_                      | Information Artifact Ontology | | 
-| foaf   | http://xmlns.com/foaf/0.1/                               | Person-related terms          | | 
 | dct    | http://purl.org/dc/terms/                                | Metadata only                 | | 
 | sh     | http://www.w3.org/ns/schacl#                             | Metadata only                 | | 
 | mee    | http://www.mee.foundation/ontologies/mee#                | TBD                           | | 
