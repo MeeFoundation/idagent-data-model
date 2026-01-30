@@ -3,19 +3,18 @@
 @prefix bfo: <http://purl.obolibrary.org/obo/BFO_> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
-@prefix mee: <http://www.mee.foundation/ontologies/mee#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix p: <http://www.mee.foundation/ontologies/persona#> .
 @base <http://www.example.org#> .
 
 <http://www.example.org#> rdf:type owl:Ontology ;
-                           owl:imports <http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl> ,
-                                       mee: ,
-                                       <http://www.ontologyrepository.com/CommonCoreOntologies/Domain/2023-08-14/PersonOntology> ,
-                                       <https://www.commoncoreontologies.org/2024-11-06/AllCoreOntology> .
+                           owl:imports  <https://opensource.ieee.org/cco/CommonCoreOntologies/-/raw/cameronmore-master-patch-e888/CCO-2.0/cco-merged/CommonCoreOntologiesMerged.ttl> ,
+                                        <https://opensource.ieee.org/po/person-ontology-project/-/raw/master/dev/Person-Ontology-dev.ttl?ref_type=heads> ,
+                                        <https://raw.githubusercontent.com/MeeFoundation/persona-ontology/refs/heads/main/persona.ttl> .
 
 #################################################################
 #    Annotation properties

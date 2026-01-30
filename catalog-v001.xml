@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-    <uri id="Imports Wizard Entry" name="http://www.ontologyrepository.com/CommonCoreOntologies/Domain/2023-08-14/PersonOntology" uri="PersonOntology.ttl"/>
-    <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl" uri="bfo-core.ttl"/>
-    <uri id="User Entered Import Resolution" name="https://www.commoncoreontologies.org/2024-11-06/AllCoreOntology" uri="AllCoreOntology.ttl"/>
-    <uri id="User Entered Import Resolution" name="http://www.mee.foundation/ontologies/mee#" uri="mee.ttl"/>
-    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base=""/>
-</catalog>
