@@ -1,6 +1,6 @@
-# idagent-data-model
+# persona-ontology
 
-This Data Model is an application profile over existing OWL ontologies. Its purpose is to define the data model within either the Self or an Identity Context in the Mee Identity Agent.
+The persona ontology is an application profile over existing OWL ontologies. It models the domain of natural people in the Mee Identity Agent. It documents in SHACL which classes and properties from other ontologies are used to describe a person. 
 
 ## Ontologies used
 
