@@ -8,13 +8,13 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix p: <http://www.mee.foundation/ontologies/persona#> .
+# @prefix p: <http://www.mee.foundation/ontologies/persona#> .
 @base <http://www.example.org#> .
 
 <http://www.example.org#> rdf:type owl:Ontology ;
-                           owl:imports  <https://opensource.ieee.org/cco/CommonCoreOntologies/-/raw/cameronmore-master-patch-e888/CCO-2.0/cco-merged/CommonCoreOntologiesMerged.ttl> ,
-                                        <https://opensource.ieee.org/po/person-ontology-project/-/raw/master/dev/Person-Ontology-dev.ttl?ref_type=heads> ,
-                                        <https://raw.githubusercontent.com/MeeFoundation/persona-ontology/refs/heads/main/persona.ttl> .
+                            owl:imports <https://opensource.ieee.org/po/person-ontology-project/-/raw/master/dev/Person-Ontology-dev.ttl?ref_type=heads> .
+#                                       <https://opensource.ieee.org/cco/CommonCoreOntologies/-/raw/cameronmore-master-patch-e888/CCO-2.0/cco-merged/CommonCoreOntologiesMerged.ttl> ,    
+#                                       <https://raw.githubusercontent.com/MeeFoundation/persona-ontology/refs/heads/main/persona.ttl> .
 
 #################################################################
 #    Annotation properties
