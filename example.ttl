@@ -8,13 +8,10 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-# @prefix p: <http://www.mee.foundation/ontologies/persona#> .
 @base <http://www.example.org#> .
 
 <http://www.example.org#> rdf:type owl:Ontology ;
-        owl:imports <https://opensource.ieee.org/cco/CommonCoreOntologies/-/raw/cameronmore-master-patch-e888/CCO-2.0/cco-merged/CommonCoreOntologiesMerged.ttl> .    
-#                   <https://opensource.ieee.org/po/person-ontology-project/-/raw/master/dev/Person-Ontology-dev.ttl?ref_type=heads> .
-#                   <https://raw.githubusercontent.com/MeeFoundation/persona-ontology/refs/heads/main/persona.ttl> .
+                           owl:imports <https://opensource.ieee.org/cco/CommonCoreOntologies/-/raw/cameronmore-master-patch-e888/CCO-2.0/cco-merged/CommonCoreOntologiesMerged.ttl> .
 
 #################################################################
 #    Annotation properties
@@ -22,6 +19,14 @@
 
 ###  http://purl.obolibrary.org/obo/BFO_bearer_of
 bfo:bearer_of rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_has_participant
+bfo:has_participant rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_occurs_during
+bfo:occurs_during rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.obolibrary.org/obo/IAO_has_representation
@@ -34,6 +39,10 @@ iao:has_represntation rdf:type owl:AnnotationProperty .
 
 ###  http://purl.obolibrary.org/obo/IAO_is_about
 iao:is_about rdf:type owl:AnnotationProperty .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/designates
+cco:designates rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_decimal_value
@@ -60,6 +69,10 @@ cco:has_name rdf:type owl:AnnotationProperty .
 cco:has_part rdf:type owl:AnnotationProperty .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_start_time
+cco:has_start_time rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_string_value
 cco:has_string_value rdf:type owl:AnnotationProperty .
 
@@ -81,11 +94,43 @@ cco:is_measurement_of rdf:type owl:AnnotationProperty .
 
 
 #################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
 #    Classes
 #################################################################
 
+###  http://purl.obolibrary.org/obo/BFO_Process
+bfo:Process rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_Site
+bfo:Site rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_TemporalRegion
+bfo:TemporalRegion rdf:type owl:Class .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Alias
 cco:Alias rdf:type owl:Class .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CityName
+cco:CityName rdf:type owl:Class .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CountryName
+cco:CountryName rdf:type owl:Class .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EmailAddress
+cco:EmailAddress rdf:type owl:Class .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/FamilyName
@@ -104,6 +149,10 @@ cco:Height rdf:type owl:Class .
 cco:LegalName rdf:type owl:Class .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementInformationContentEntity
+cco:MeasurementInformationContentEntity rdf:type owl:Class .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MiddleName
 cco:MiddleName rdf:type owl:Class .
 
@@ -112,8 +161,28 @@ cco:MiddleName rdf:type owl:Class .
 cco:Person rdf:type owl:Class .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PostalAddress
+cco:PostalAddress rdf:type owl:Class .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PostalCode
+cco:PostalCode rdf:type owl:Class .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SocialSecurityNumber
 cco:SocialSecurityNumber rdf:type owl:Class .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/StateName
+cco:StateName rdf:type owl:Class .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/StreetAddress
+cco:StreetAddress rdf:type owl:Class .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TelephoneNumber
+cco:TelephoneNumber rdf:type owl:Class .
 
 
 ###  https://www.commoncoreontologies.org/ont00000388
@@ -124,6 +193,26 @@ cco:SocialSecurityNumber rdf:type owl:Class .
 #    Individuals
 #################################################################
 
+###  http://www.example.org#AA_Elizabeth
+:AA_Elizabeth rdf:type owl:NamedIndividual ,
+                       cco:Person ;
+              bfo:bearer_of :Alias_ElizabethTrevithick ,
+                            :EmailAddress_ET ,
+                            :Height_ET ,
+                            :HomeAddress_ET ,
+                            :LegalName_MargeryElizabethTrevithick ;
+              cco:has_designator :PhoneNumber_ET ,
+                                 :SSN_ET .
+
+
+###  http://www.example.org#AddressBearing_2025_Present
+:AddressBearing_2025_Present rdf:type owl:NamedIndividual ,
+                                      bfo:Process ;
+                             bfo:has_participant :AA_Elizabeth ,
+                                                 :HomeAddress_ET ;
+                             bfo:occurs_during :Interval_2025_Present .
+
+
 ###  http://www.example.org#Alias_ElizabethTrevithick
 :Alias_ElizabethTrevithick rdf:type owl:NamedIndividual ,
                                     cco:Alias ;
@@ -131,15 +220,16 @@ cco:SocialSecurityNumber rdf:type owl:Class .
                                         :GivenName_Elizabeth_Alias .
 
 
-###  http://www.example.org#Elizabeth
-:Elizabeth rdf:type owl:NamedIndividual ,
-                    cco:Person ;
-           bfo:bearer_of :Alias_ElizabethTrevithick ,
-                         :EmailAddress_ET ,
-                         :Height_ET ,
-                         :LegalName_MargeryElizabethTrevithick ;
-           cco:has_designator :PhoneNumber_ET ,
-                              :SSN_ET .
+###  http://www.example.org#City_Concord
+:City_Concord rdf:type owl:NamedIndividual ,
+                       cco:CityName ;
+              cco:has_text_value "Concord" .
+
+
+###  http://www.example.org#Country_USA
+:Country_USA rdf:type owl:NamedIndividual ,
+                      cco:CountryName ;
+             cco:has_text_value "United States" .
 
 
 ###  http://www.example.org#EmailAddress_ET
@@ -185,6 +275,23 @@ cco:SocialSecurityNumber rdf:type owl:Class .
                     cco:Height .
 
 
+###  http://www.example.org#HomeAddress_ET
+:HomeAddress_ET rdf:type owl:NamedIndividual ,
+                         cco:PostalAddress ;
+                cco:designates :Residence_ET ;
+                cco:has_part :City_Concord ,
+                             :Country_USA ,
+                             :PostalCode_03301 ,
+                             :State_NH ,
+                             :Street_Main .
+
+
+###  http://www.example.org#Interval_2025_Present
+:Interval_2025_Present rdf:type owl:NamedIndividual ,
+                                bfo:TemporalRegion ;
+                       cco:has_start_time "2025-09-01"^^xsd:date .
+
+
 ###  http://www.example.org#LegalName_MargeryElizabethTrevithick
 :LegalName_MargeryElizabethTrevithick rdf:type owl:NamedIndividual ,
                                                cco:LegalName ;
@@ -203,7 +310,18 @@ cco:SocialSecurityNumber rdf:type owl:Class .
 :PhoneNumber_ET rdf:type owl:NamedIndividual ,
                          cco:TelephoneNumber ;
                 cco:has_designation_role cco:MobileTelephoneNumberRole ;
-                cco:has_string_value "+15108146205" .
+                cco:has_string_value "+15108149999" .
+
+
+###  http://www.example.org#PostalCode_03301
+:PostalCode_03301 rdf:type owl:NamedIndividual ,
+                           cco:PostalCode ;
+                  cco:has_text_value "03301" .
+
+
+###  http://www.example.org#Residence_ET
+:Residence_ET rdf:type owl:NamedIndividual ,
+                       bfo:Site .
 
 
 ###  http://www.example.org#SSN_ET
@@ -211,6 +329,18 @@ cco:SocialSecurityNumber rdf:type owl:Class .
                  cco:SocialSecurityNumber ;
         cco:has_designation_role cco:PersonalIdentifierRole ;
         cco:has_string_value "123-45-6789" .
+
+
+###  http://www.example.org#State_NH
+:State_NH rdf:type owl:NamedIndividual ,
+                   cco:StateName ;
+          cco:has_text_value "NH" .
+
+
+###  http://www.example.org#Street_Main
+:Street_Main rdf:type owl:NamedIndividual ,
+                      cco:StreetAddress ;
+             cco:has_text_value "123 Main Street" .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

@@ -8,6 +8,21 @@
 @prefix cco:   <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix mee:   <http://www.mee.foundation/ontologies/mee#> .
 
+:OpenEndedTemporalRegionShape
+    a sh:NodeShape ;
+    sh:targetClass bfo:TemporalRegion ;
+    sh:property [
+        sh:path cco:has_start_time ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:date ;
+    ] ;
+    sh:property [
+        sh:path cco:has_end_time ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:date ;
+    ] .
+
 :SSNShape
     a sh:NodeShape ;
     sh:targetClass cco:SocialSecurityNumber ;
@@ -60,7 +75,8 @@
         sh:or (
 	        [ sh:class cco:LegalName ]   
 	        [ sh:class cco:Alias ]   
-                 [ sh:class cco:EmailAddress ]  
+            [ sh:class cco:EmailAddress ]  
+            [ sh:class cco:PostalAddress ]
 	        [ sh:class cco:Height ]
         ) ;
     ] ;
