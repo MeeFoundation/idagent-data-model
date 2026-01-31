@@ -1,17 +1,19 @@
 @prefix : <http://www.example.org#> .
+@prefix po: <https://purl.org/efo/domains/PersonOntology#> .
 @prefix uo: <http://purl.obolibrary.org/obo/UO_> .
 @prefix bfo: <http://purl.obolibrary.org/obo/BFO_> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
-@prefix po:  <https://purl.org/efo/domains/PersonOntology#> .
 @prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.example.org#> .
 
-: rdf:type owl:Ontology ;
-    owl:imports <https://purl.org/efo/domains/PersonOntology> .
+<http://www.example.org#> rdf:type owl:Ontology ;
+                           owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-11-03/AllCoreOntology> ,
+                                       <https://purl.org/efo/domains/PersonOntology> .
 
 #################################################################
 #    Annotation properties
@@ -29,26 +31,6 @@ bfo:has_participant rdf:type owl:AnnotationProperty .
 bfo:occurs_during rdf:type owl:AnnotationProperty .
 
 
-###  http://purl.obolibrary.org/obo/IAO_has_representation
-iao:has_representation rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.obolibrary.org/obo/IAO_has_represntation
-iao:has_represntation rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.obolibrary.org/obo/IAO_is_about
-iao:is_about rdf:type owl:AnnotationProperty .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/designates
-cco:designates rdf:type owl:AnnotationProperty .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/has_decimal_value
-cco:has_decimal_value rdf:type owl:AnnotationProperty .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_designation_role
 cco:has_designation_role rdf:type owl:AnnotationProperty .
 
@@ -61,10 +43,6 @@ cco:has_designator rdf:type owl:AnnotationProperty .
 cco:has_measurement_unit rdf:type owl:AnnotationProperty .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/has_name
-cco:has_name rdf:type owl:AnnotationProperty .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_part
 cco:has_part rdf:type owl:AnnotationProperty .
 
@@ -75,18 +53,6 @@ cco:has_start_time rdf:type owl:AnnotationProperty .
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_string_value
 cco:has_string_value rdf:type owl:AnnotationProperty .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/has_text_value
-cco:has_text_value rdf:type owl:AnnotationProperty .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/is_about
-cco:is_about rdf:type owl:AnnotationProperty .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/is_bearer_of
-cco:is_bearer_of rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_measurement_of
@@ -181,6 +147,10 @@ cco:StreetAddress rdf:type owl:Class .
 cco:TelephoneNumber rdf:type owl:Class .
 
 
+###  https://purl.org/efo/domains/PersonOntology#LegalName
+po:LegalName rdf:type owl:Class .
+
+
 ###  https://www.commoncoreontologies.org/ont00000388
 <https://www.commoncoreontologies.org/ont00000388> rdf:type owl:Class .
 
@@ -193,12 +163,12 @@ cco:TelephoneNumber rdf:type owl:Class .
 :AA_Elizabeth rdf:type owl:NamedIndividual ,
                        cco:Person ;
               bfo:bearer_of :Height_ET ;
-              cco:has_designator :PhoneNumber_ET ,
-                            :EmailAddress_ET ,
-                            :HomeAddress_ET ,
-                            :LegalName_MargeryElizabethTrevithick ,
-                            :Alias_ElizabethTrevithick ,
-                            :SSN_ET .
+              cco:has_designator :Alias_ElizabethTrevithick ,
+                                 :EmailAddress_ET ,
+                                 :HomeAddress_ET ,
+                                 :LegalName_MargeryElizabethTrevithick ,
+                                 :PhoneNumber_ET ,
+                                 :SSN_ET .
 
 
 ###  http://www.example.org#AddressBearing_2025_Present
@@ -324,7 +294,7 @@ cco:TelephoneNumber rdf:type owl:Class .
 :SSN_ET rdf:type owl:NamedIndividual ,
                  cco:SocialSecurityNumber ;
         cco:has_designation_role cco:PersonalIdentifierRole ;
-        cco:has_string_value "123-45-6789" .
+        cco:has_string_value "123-45-6788" .
 
 
 ###  http://www.example.org#State_NH
