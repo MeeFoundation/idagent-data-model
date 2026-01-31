@@ -4,7 +4,7 @@ The persona ontology is an application profile over existing OWL ontologies. It 
 
 ## Ontologies used
 
-| Prefix | Namespace                                                | Notes                         | file with link to source                                                                                                                                                     |
+| Prefix | Namespace                                                | Notes                         | Local file with link to source                                                                                                                                                     |
 |--------|----------------------------------------------------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | bfo    | http://purl.obolibrary.org/obo/BFO_                      | Basic Formal Ontology         | |
 | cco    | http://www.ontologyrepository.com/CommonCoreOntologies/  | Common Core Ontologies        | | 
