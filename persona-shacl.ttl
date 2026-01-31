@@ -6,7 +6,8 @@
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix bfo:   <http://purl.obolibrary.org/obo/BFO_> .
 @prefix cco:   <http://www.ontologyrepository.com/CommonCoreOntologies/> .
-@prefix mee:   <http://www.mee.foundation/ontologies/mee#> .
+@prefix po:    <https://purl.org/efo/domains/PersonOntology#> .
+
 
 :OpenEndedTemporalRegionShape
     a sh:NodeShape ;
@@ -73,18 +74,18 @@
     sh:property [
         sh:path bfo:bearer_of;
         sh:or (
-	        [ sh:class cco:LegalName ]   
-	        [ sh:class cco:Alias ]   
-            [ sh:class cco:EmailAddress ]  
-            [ sh:class cco:PostalAddress ]
 	        [ sh:class cco:Height ]
         ) ;
     ] ;
     sh:property [
         sh:path cco:has_designator ;
         sh:or (
-	        [ sh:class cco:TelephoneNumber ]   
-	        [ sh:class cco:SocialSecurityNumber ] 
+	   [ sh:class cco:TelephoneNumber ]   
+	   [ sh:class cco:SocialSecurityNumber ] 
+	   [ sh:class po:LegalName ]   
+	   [ sh:class cco:Alias ]   
+            [ sh:class cco:EmailAddress ]  
+            [ sh:class cco:PostalAddress ]
         ) ;
     ] ;
 
