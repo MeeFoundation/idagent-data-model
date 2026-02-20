@@ -1,4 +1,5 @@
 @prefix :      <http://www.example.org#> .
+@prefix p:     <http://mee.foundation/ontologies/persona#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sh:    <http://www.w3.org/ns/shacl#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
@@ -75,6 +76,7 @@
         sh:path bfo:bearer_of;
         sh:or (
 	        [ sh:class cco:Height ]
+	        [ sh:class p:EyeColor ]
         ) ;
     ] ;
     sh:property [

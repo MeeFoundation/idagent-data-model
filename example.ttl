@@ -1,4 +1,5 @@
 @prefix : <http://www.example.org#> .
+@prefix p: <http://mee.foundation/ontologies/persona#> .
 @prefix po: <https://purl.org/efo/domains/PersonOntology#> .
 @prefix uo: <http://purl.obolibrary.org/obo/UO_> .
 @prefix bfo: <http://purl.obolibrary.org/obo/BFO_> .
@@ -147,6 +148,15 @@ cco:StreetAddress rdf:type owl:Class .
 cco:TelephoneNumber rdf:type owl:Class .
 
 
+###  http://mee.foundation/ontologies/persona#EyeColor
+p:EyeColor rdf:type owl:Class .
+
+
+###  http://mee.foundation/ontologies/persona#BlueEyeColor
+p:BlueEyeColor rdf:type owl:Class ;
+               rdfs:subClassOf p:EyeColor .
+
+
 ###  https://purl.org/efo/domains/PersonOntology#LegalName
 po:LegalName rdf:type owl:Class .
 
@@ -162,7 +172,8 @@ po:LegalName rdf:type owl:Class .
 ###  http://www.example.org#AA_Elizabeth
 :AA_Elizabeth rdf:type owl:NamedIndividual ,
                        cco:Person ;
-              bfo:bearer_of :Height_ET ;
+              bfo:bearer_of :Height_ET ,
+                            :EyeColor_ET ;
               cco:has_designator :Alias_ElizabethTrevithick ,
                                  :EmailAddress_ET ,
                                  :HomeAddress_ET ,
@@ -234,6 +245,11 @@ po:LegalName rdf:type owl:Class .
                       cco:has_decimal_value 68 ;
                       cco:has_measurement_unit uo:UO_0000010 ;
                       cco:is_measurement_of :Height_ET .
+
+
+###  http://www.example.org#EyeColor_ET
+:EyeColor_ET rdf:type owl:NamedIndividual ,
+                      p:BlueEyeColor .
 
 
 ###  http://www.example.org#Height_ET
