@@ -169,32 +169,32 @@ po:LegalName rdf:type owl:Class .
 #    Individuals
 #################################################################
 
-###  http://www.example.org#AA_Elizabeth
-:AA_Elizabeth rdf:type owl:NamedIndividual ,
-                       cco:Person ;
-              bfo:bearer_of :Height_ET ,
-                            :EyeColor_ET ;
-              cco:has_designator :Alias_ElizabethTrevithick ,
-                                 :EmailAddress_ET ,
-                                 :HomeAddress_ET ,
-                                 :LegalName_MargeryElizabethTrevithick ,
-                                 :PhoneNumber_ET ,
-                                 :SSN_ET .
+###  http://www.example.org#AA_Alice
+:AA_Alice rdf:type owl:NamedIndividual ,
+                   cco:Person ;
+          bfo:bearer_of :Height_AW ,
+                        :EyeColor_AW ;
+          cco:has_designator :Alias_AliceWalker ,
+                             :EmailAddress_AW ,
+                             :HomeAddress_AW ,
+                             :LegalName_MargeryAliceWalker ,
+                             :PhoneNumber_AW ,
+                             :SSN_AW .
 
 
 ###  http://www.example.org#AddressBearing_2025_Present
 :AddressBearing_2025_Present rdf:type owl:NamedIndividual ,
                                       bfo:Process ;
-                             bfo:has_participant :AA_Elizabeth ,
-                                                 :HomeAddress_ET ;
+                             bfo:has_participant :AA_Alice ,
+                                                :HomeAddress_AW ;
                              bfo:occurs_during :Interval_2025_Present .
 
 
-###  http://www.example.org#Alias_ElizabethTrevithick
-:Alias_ElizabethTrevithick rdf:type owl:NamedIndividual ,
-                                    cco:Alias ;
-                           cco:has_part :FamilyName_Trevithick_Alias ,
-                                        :GivenName_Elizabeth_Alias .
+###  http://www.example.org#Alias_AliceWalker
+:Alias_AliceWalker rdf:type owl:NamedIndividual ,
+                            cco:Alias ;
+                   cco:has_part :FamilyName_Walker_Alias ,
+                                :GivenName_Alice_Alias .
 
 
 ###  http://www.example.org#City_Concord
@@ -209,28 +209,28 @@ po:LegalName rdf:type owl:Class .
              cco:has_text_value "United States" .
 
 
-###  http://www.example.org#EmailAddress_ET
-:EmailAddress_ET rdf:type owl:NamedIndividual ,
+###  http://www.example.org#EmailAddress_AW
+:EmailAddress_AW rdf:type owl:NamedIndividual ,
                           cco:EmailAddress ;
-                 cco:has_text_value "elizabeth.trevithick@gmail.com" .
+                 cco:has_text_value "awalker@gmail.com" .
 
 
-###  http://www.example.org#FamilyName_Trevithick
-:FamilyName_Trevithick rdf:type owl:NamedIndividual ,
-                                cco:FamilyName ;
-                       cco:has_string_value "Trevithick" .
+###  http://www.example.org#FamilyName_Walker
+:FamilyName_Walker rdf:type owl:NamedIndividual ,
+                            cco:FamilyName ;
+                   cco:has_string_value "Walker" .
 
 
-###  http://www.example.org#FamilyName_Trevithick_Alias
-:FamilyName_Trevithick_Alias rdf:type owl:NamedIndividual ,
-                                      cco:FamilyName ;
-                             cco:has_string_value "Trevithick" .
+###  http://www.example.org#FamilyName_Walker_Alias
+:FamilyName_Walker_Alias rdf:type owl:NamedIndividual ,
+                                  cco:FamilyName ;
+                         cco:has_string_value "Walker" .
 
 
-###  http://www.example.org#GivenName_Elizabeth_Alias
-:GivenName_Elizabeth_Alias rdf:type owl:NamedIndividual ,
-                                    cco:GivenName ;
-                           cco:has_string_value "Elizabeth" .
+###  http://www.example.org#GivenName_Alice_Alias
+:GivenName_Alice_Alias rdf:type owl:NamedIndividual ,
+                                cco:GivenName ;
+                       cco:has_string_value "Alice" .
 
 
 ###  http://www.example.org#GivenName_Margery
@@ -239,33 +239,33 @@ po:LegalName rdf:type owl:Class .
                    cco:has_string_value "Margery" .
 
 
-###  http://www.example.org#HeightMeasurement_ET
-:HeightMeasurement_ET rdf:type owl:NamedIndividual ,
+###  http://www.example.org#HeightMeasurement_AW
+:HeightMeasurement_AW rdf:type owl:NamedIndividual ,
                                cco:MeasurementInformationContentEntity ;
                       cco:has_decimal_value 68 ;
                       cco:has_measurement_unit uo:UO_0000010 ;
-                      cco:is_measurement_of :Height_ET .
+                      cco:is_measurement_of :Height_AW .
 
 
-###  http://www.example.org#EyeColor_ET
-:EyeColor_ET rdf:type owl:NamedIndividual ,
+###  http://www.example.org#EyeColor_AW
+:EyeColor_AW rdf:type owl:NamedIndividual ,
                       p:BlueEyeColor .
 
 
-###  http://www.example.org#Height_ET
-:Height_ET rdf:type owl:NamedIndividual ,
+###  http://www.example.org#Height_AW
+:Height_AW rdf:type owl:NamedIndividual ,
                     cco:Height .
 
 
-###  http://www.example.org#HomeAddress_ET
-:HomeAddress_ET rdf:type owl:NamedIndividual ,
+###  http://www.example.org#HomeAddress_AW
+:HomeAddress_AW rdf:type owl:NamedIndividual ,
                          cco:PostalAddress ;
-                cco:designates :Residence_ET ;
+                cco:designates :Residence_AW ;
                 cco:has_part :City_Concord ,
                              :Country_USA ,
-                             :PostalCode_03301 ,
-                             :State_NH ,
-                             :Street_Main .
+                             :PostalCode_95969 ,
+                             :State_CA ,
+                             :Street_Sleepy .
 
 
 ###  http://www.example.org#Interval_2025_Present
@@ -274,55 +274,55 @@ po:LegalName rdf:type owl:Class .
                        cco:has_start_time "2025-09-01"^^xsd:date .
 
 
-###  http://www.example.org#LegalName_MargeryElizabethTrevithick
-:LegalName_MargeryElizabethTrevithick rdf:type owl:NamedIndividual ,
-                                               po:LegalName ;
-                                      cco:has_part :FamilyName_Trevithick ,
-                                                   :GivenName_Margery ,
-                                                   :MiddleName_Elizabeth .
+###  http://www.example.org#LegalName_MargeryAliceWalker
+:LegalName_MargeryAliceWalker rdf:type owl:NamedIndividual ,
+                                       po:LegalName ;
+                              cco:has_part :FamilyName_Walker ,
+                                           :GivenName_Margery ,
+                                           :MiddleName_Alice .
 
 
-###  http://www.example.org#MiddleName_Elizabeth
-:MiddleName_Elizabeth rdf:type owl:NamedIndividual ,
-                               cco:MiddleName ;
-                      cco:has_string_value "Elizabeth" .
+###  http://www.example.org#MiddleName_Alice
+:MiddleName_Alice rdf:type owl:NamedIndividual ,
+                           cco:MiddleName ;
+                  cco:has_string_value "Alice" .
 
 
-###  http://www.example.org#PhoneNumber_ET
-:PhoneNumber_ET rdf:type owl:NamedIndividual ,
+###  http://www.example.org#PhoneNumber_AW
+:PhoneNumber_AW rdf:type owl:NamedIndividual ,
                          cco:TelephoneNumber ;
                 cco:has_designation_role cco:MobileTelephoneNumberRole ;
                 cco:has_string_value "+15108149999" .
 
 
-###  http://www.example.org#PostalCode_03301
-:PostalCode_03301 rdf:type owl:NamedIndividual ,
+###  http://www.example.org#PostalCode_95969
+:PostalCode_95969 rdf:type owl:NamedIndividual ,
                            cco:PostalCode ;
-                  cco:has_text_value "03301" .
+                  cco:has_text_value "95969" .
 
 
-###  http://www.example.org#Residence_ET
-:Residence_ET rdf:type owl:NamedIndividual ,
+###  http://www.example.org#Residence_AW
+:Residence_AW rdf:type owl:NamedIndividual ,
                        bfo:Site .
 
 
-###  http://www.example.org#SSN_ET
-:SSN_ET rdf:type owl:NamedIndividual ,
+###  http://www.example.org#SSN_AW
+:SSN_AW rdf:type owl:NamedIndividual ,
                  cco:SocialSecurityNumber ;
         cco:has_designation_role cco:PersonalIdentifierRole ;
         cco:has_string_value "123-45-6788" .
 
 
-###  http://www.example.org#State_NH
-:State_NH rdf:type owl:NamedIndividual ,
+###  http://www.example.org#State_CA
+:State_CA rdf:type owl:NamedIndividual ,
                    cco:StateName ;
-          cco:has_text_value "NH" .
+          cco:has_text_value "CA" .
 
 
-###  http://www.example.org#Street_Main
-:Street_Main rdf:type owl:NamedIndividual ,
-                      cco:StreetAddress ;
-             cco:has_text_value "123 Main Street" .
+###  http://www.example.org#Street_Sleepy
+:Street_Sleepy rdf:type owl:NamedIndividual ,
+                        cco:StreetAddress ;
+               cco:has_text_value "123 Sleepy Hollow" .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
